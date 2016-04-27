@@ -11,24 +11,6 @@ typedef struct list {
   struct list *next;
 } TList;
 
-void create_list(TList **head, int *n){
-  printf("Uneti broj elemenata liste: ");
-  scanf("%d",n);
-  fflush(stdin);
-  *head = NULL;
-  TList *pom = *head;
-  for(int i=0; i<*n; i++){
-    TList *tmp;
-    int el;
-    tmp = (TList*)malloc(sizeof(TList));
-    scanf("%d",&el);
-    tmp->value = el;
-    tmp->next = NULL;
-    pom = tmp;
-    pom = pom->next;
-  }
-}
-
 void print_list(TList *list){
   while(list != NULL){
     printf("%d ", list->value);
@@ -36,10 +18,39 @@ void print_list(TList *list){
   }
 }
 
+void add_el(TList **list, int el){
+  TList *new=(TList*)malloc(sizeof(TList));
+  new->value = el;
+  new->next = NULL;
+  if (*list==NULL)
+    *list=new;
+  else{
+    TList* tmp;
+    for(tmp=*list; tmp->next != NULL; tmp=tmp->next) ;
+    tmp->next = new;
+  }
+}
+
+void inc_value(TList **list){
+  TList *t=*list;
+  while(t != NULL){
+    t->value++;
+    t = t->next;
+  }
+}
+
 int main(){
-  TList *head;
+  TList *head, *new;
   int n;
-  create_list(&head, &n);
+  head = NULL;
+  printf("Unesite broj elemenata liste: ");
+  scanf("%d",&n);
+  for(int i=0; i<n; i++){
+    int tmp;
+    scanf("%d",&tmp);
+    add_el(&head,tmp);
+  }
+  inc_value(&head);
   print_list(head);
   return 0;
 
