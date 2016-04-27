@@ -18,15 +18,14 @@ void create_list(TList **head, int *n){
   *head = NULL;
   TList *pom = *head;
   for(int i=0; i<*n; i++){
-    int el;
     TList *tmp;
+    int el;
     tmp = (TList*)malloc(sizeof(TList));
     scanf("%d",&el);
     tmp->value = el;
     tmp->next = NULL;
-    pom->next = tmp;
+    pom = tmp;
     pom = pom->next;
-    free(tmp);
   }
 }
 
