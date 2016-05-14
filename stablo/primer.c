@@ -7,16 +7,16 @@ typedef struct cvor {
   struct cvor *desni;
 }BCvor;
 
-void insert_el (BCvor novi, BCvor **koren){
+void insert_el (BCvor *novi, BCvor **koren){
   if (*koren == NULL){
     *koren = novi;
     novi->levi = NULL;
     novi->desni = NULL;
   } else {
-    if (novi->value > *koren->value){
-      insert_el(novi, &(*koren->desni));
-    }else if (novi->value < *koren->value){
-      insert_el(novi, &(*koren->levi));
+    if (novi->value > (*koren)->value){
+      insert_el(novi, &((*koren)->desni));
+    }else if (novi->value < (*koren)->value){
+      insert_el(novi, &((*koren)->levi));
     }else
       return ;
   }
