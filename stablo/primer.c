@@ -50,3 +50,14 @@ vodi delete_tree(BCvor *koren){
   delete_tree(koren->desni);
   free(koren);
 }
+
+BCvor *min_node(BCvor *koren){
+  BCvor *child;
+  if (koren == NULL)
+    return NULL;
+  child = min_node(koren->levi);
+  if (child == NULL)
+    return koren;
+  else
+    return child;
+}
