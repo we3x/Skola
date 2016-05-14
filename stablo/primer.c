@@ -88,5 +88,53 @@ void delete_node(int key,BCvor **koren){
 }
 
 int main(){
+  BCvor *koren, *new;
+  koren = NULL;
+  /* Ubacivanje elementa */
+  new = (BCvor*)malloc(sizeof(BCvor));
+  new->value = 10;
+  insert_el(new, &koren);
+
+  /* Ubacivanje elementa */
+  new = (BCvor*)malloc(sizeof(BCvor));
+  new->value = 12;
+  insert_el(new, &koren);
+
+  /* Ubacivanje elementa */
+  new = (BCvor*)malloc(sizeof(BCvor));
+  new->value = 5;
+  insert_el(new, &koren);
+
+  /* Ubacivanje elementa */
+  new = (BCvor*)malloc(sizeof(BCvor));
+  new->value = 1;
+  insert_el(new, &koren);
+
+  /* Ubacivanje elementa */
+  new = (BCvor*)malloc(sizeof(BCvor));
+  new->value = 7;
+  insert_el(new, &koren);
+
+  /* Ubacivanje elementa */
+  new = (BCvor*)malloc(sizeof(BCvor));
+  new->value = 6;
+  insert_el(new, &koren);
+
+  /* Ubacivanje elementa */
+  new = (BCvor*)malloc(sizeof(BCvor));
+  new->value = 9;
+  insert_el(new, &koren);
+
+  printf("Ispisujem stablo \n");
+  print_tree(koren);
+
+  delete_node(10, &koren);
+
+  printf("\n");
+  print_tree(koren);
+
+  delete_tree(koren);
+  koren = NULL;
+
   return 0;
 }
