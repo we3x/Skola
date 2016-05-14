@@ -42,3 +42,11 @@ void print_tree(BCvor *koren){
   print_tree(koren -> levi);
   print_tree(koren -> desni);
 }
+
+vodi delete_tree(BCvor *koren){
+  if( koren == NULL)
+    return;
+  delete_tree(koren->levi);
+  delete_tree(koren->desni);
+  free(koren);
+}
