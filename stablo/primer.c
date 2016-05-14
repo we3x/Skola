@@ -13,9 +13,9 @@ void insert_el (BCvor novi, BCvor **koren){
     novi -> desni = NULL;
   } else {
     if (novi -> value > *koren -> value){
-      insert_el(novi, &(*koren -> value));
+      insert_el(novi, &(*koren -> desni));
     }else if (novi -> value < *koren -> value){
-      insert_el(novi, &(*koren -> value))
+      insert_el(novi, &(*koren -> levi))
     }else
       return ;
   }
